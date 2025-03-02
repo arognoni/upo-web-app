@@ -59,6 +59,7 @@ The main dependencies are:
 - [SQLite](https://www.sqlite.org/): Built-in SQL database engine.
 - [Plotly](https://plotly.com/): Plotting library.
 - [HTTPX](https://www.python-httpx.org/): HTTP client.
+- [Pandas](https://pandas.pydata.org/): Data analysis library.
 
 ## Project Organization
 
