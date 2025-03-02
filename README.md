@@ -31,7 +31,7 @@ pip install -r requirements.txt
 ```
 
 The complete project can be found in the `complete-project` branch.
-A standalone script allows one to generate the SQLite database:
+A standalone script allows one to generate the SQLite database from the CSV file:
 
 ```bat
 python create_db.py 
@@ -71,8 +71,12 @@ The main dependencies are:
 ├── api.py             <- API main file.
 ├── Home.py            <- Dashboard main file.
 ├── pages
-    ├── Crypto.py      <- Cryptocurrency page.
-    └── Data.py        <- Data page.
+│    ├── Crypto.py     <- Cryptocurrency page.
+│    └── Data.py       <- Data page.
+└── static
+     ├── data.csv           <- Data source.
+     ├── uniupo-logo.svg    <- UPO logo.
+     └── favicon-32x32.png  <- UPO favicon.
 ```
 
 ## The Binance API
