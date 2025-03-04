@@ -1,8 +1,10 @@
 # Python Web Applications
+
 Material for the "Python web applications" seminar.
 The project can be downloaded by clicking the "code" button at the top-right corner of the page.
 
 ## Contents
+
 - [Python Web Applications](#python-web-applications)
   - [Getting started](#getting-started)
   - [Dependencies](#dependencies)
@@ -34,7 +36,7 @@ The complete project can be found in the `complete-project` branch.
 A standalone script allows one to generate the SQLite database from the CSV file:
 
 ```bat
-python create_db.py 
+python create_db.py
 ```
 
 To start the back-end API locally, execute:
@@ -54,8 +56,8 @@ The API and dashboard default ports are `8000` and `5501`, respectively.
 ## Dependencies
 
 The main dependencies are:
-- [FastAPI](https://fastapi.tiangolo.com/): Used to develop the back-end API.
-- [Streamlit](https://streamlit.io/): Used to develop the front-end dashboard.
+- [FastAPI](https://fastapi.tiangolo.com/): Back-end framework.
+- [Streamlit](https://streamlit.io/): Dashboard framework.
 - [SQLite](https://www.sqlite.org/): Built-in SQL database engine.
 - [Plotly](https://plotly.com/): Plotting library.
 - [HTTPX](https://www.python-httpx.org/): HTTP client.
@@ -67,7 +69,6 @@ The main dependencies are:
 ├── README.md          <- README file.
 ├── requirements.txt   <- Project dependencies.
 ├── .gitignore         <- git-ignore configuration file.
-│
 ├── create_db.py       <- Standalone script to create the DB.
 ├── api.py             <- API main file.
 ├── Home.py            <- Dashboard main file.
