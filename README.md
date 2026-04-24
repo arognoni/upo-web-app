@@ -9,6 +9,7 @@ The project can be downloaded by clicking the "code" button at the top-right cor
   - [Getting started](#getting-started)
   - [Dependencies](#dependencies)
   - [Project Organization](#project-organization)
+  - [Ollama](#ollama)
   - [The Binance API](#the-binance-api)
 
 
@@ -33,35 +34,20 @@ pip install -r requirements.txt
 ```
 
 The complete project can be found in the `complete-project` branch.
-A standalone script allows one to generate the SQLite database from the CSV file:
-
-```bat
-python create_db.py
-```
-
-To start the back-end API locally, execute:
-
-```bat
-fastapi dev api.py
-```
-
-Similarly, to launch the Streamlit dashboard run:
 
 ```bat
 streamlit run Home.py
 ```
 
-The API and dashboard default ports are `8000` and `5501`, respectively.
+The dashboard will be running at http://localhost:8501.
 
 ## Dependencies
 
 The main dependencies are:
-- [FastAPI](https://fastapi.tiangolo.com/): Back-end framework.
 - [Streamlit](https://streamlit.io/): Dashboard framework.
-- [SQLite](https://www.sqlite.org/): Built-in SQL database engine.
 - [Plotly](https://plotly.com/): Plotting library.
 - [HTTPX](https://www.python-httpx.org/): HTTP client.
-- [Pandas](https://pandas.pydata.org/): Data analysis library.
+- [Langchain](https://www.langchain.com/): Agent library.
 
 ## Project Organization
 
@@ -69,11 +55,9 @@ The main dependencies are:
 ├── README.md          <- README file.
 ├── requirements.txt   <- Project dependencies.
 ├── .gitignore         <- git-ignore configuration file.
-├── create_db.py       <- Standalone script to create the DB.
-├── api.py             <- API main file.
 ├── Home.py            <- Dashboard main file.
 ├── pages
-│    ├── Crypto.py     <- Cryptocurrency page.
+│    ├── Chat.py       <- Chat page.
 │    └── Data.py       <- Data page.
 └── static
      ├── data.csv           <- Data source.
@@ -81,27 +65,36 @@ The main dependencies are:
      └── favicon-32x32.png  <- UPO favicon.
 ```
 
+## Ollama
+
+We use [ollama](https://ollama.com/) to run models locally. To start the Ollama server run:
+
+```sh
+ollama serve
+```
+
+Once the server is running, execute
+
+```sh
+ollama run qwen3.5:2b
+```
+
+to download and lanuch Qwen 3.5-2B. If you face OOMs, try with the 0.8B:
+
+```sh
+ollama run qwen3.5:0.8b
+```
+
+
 ## The Binance API
 
 To get real-time cryptocurrency prices, we will use the
 [Binance API](https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md).
-Specifically, will make GET requests to the following endpoint: [https://api.binance.com/api/v3/ticker/price?symbols=["ETHUSDT","DOGEUSDT","BTCUSDT"]](https://api.binance.com/api/v3/ticker/price?symbols=["ETHUSDT","DOGEUSDT","BTCUSDT"]). The data we receive is a JSON having the following shape:
+Specifically, will make GET requests to the following endpoint: [https://api.binance.com/api/v3/ticker/price?symbol=ETHUSDT](https://api.binance.com/api/v3/ticker/price?symbol=ETHUSDT). The response has the following format:
 
 ```js
-[
-    {
-        "symbol":"BTCUSDT",
-        "price":"29316.60000000"
-    },
-    {
-        "symbol":"ETHUSDT",
-        "price":"1969.81000000"
-    },
-    {
-        "symbol":"DOGEUSDT",
-        "price":"0.08400000"
-    }
-]
+{
+    "symbol":"ETHUSDT",
+    "price":"2322.54000000"
+}
 ```
-
-where `symbol` represents the cryptocurrency symbol and `price` is the price in USD(T).
