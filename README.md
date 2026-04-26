@@ -67,13 +67,7 @@ The main dependencies are:
 
 ## Ollama
 
-We use [ollama](https://ollama.com/) to run models locally. To start the Ollama server run:
-
-```sh
-ollama serve
-```
-
-Once the server is running, execute
+We use [ollama](https://ollama.com/) to run models locally. Execute
 
 ```sh
 ollama run qwen3.5:2b
