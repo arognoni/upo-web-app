@@ -85,6 +85,8 @@ to download and lanuch Qwen 3.5-2B. If you face OOMs, try with the 0.8B:
 ollama run qwen3.5:0.8b
 ```
 
+We will send requests to [http://localhost:11434/api/chat](http://localhost:11434/api/chat).
+
 
 ## The Binance API
 
