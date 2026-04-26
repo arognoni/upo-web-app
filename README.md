@@ -12,7 +12,6 @@ The project can be downloaded by clicking the "code" button at the top-right cor
   - [Ollama](#ollama)
   - [The Binance API](#the-binance-api)
 
-
 ## Getting started
 
 To create a virtual environment named `.venv`, simply run:
@@ -67,7 +66,7 @@ The main dependencies are:
 
 ## Ollama
 
-We use [ollama](https://ollama.com/) to run models locally. Execute
+We use [ollama](https://ollama.com/) to run models locally. Execute:
 
 ```sh
 ollama run qwen3.5:2b
@@ -80,7 +79,6 @@ ollama run qwen3.5:0.8b
 ```
 
 We will send requests to [http://localhost:11434/api/chat](http://localhost:11434/api/chat).
-
 
 ## The Binance API
 
